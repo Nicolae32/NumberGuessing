@@ -14,14 +14,21 @@ namespace number_guessing
     {
        
            Random number = new Random();
-            int n = number.Next(1, 10);
+            int n;
         public Form1()
         {
             
             
 
-
+            
             InitializeComponent();
+            generate();
+
+        }
+        private void generate()
+        {
+            n = number.Next(1,10);
+
         }
        
         private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -31,12 +38,12 @@ namespace number_guessing
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+             
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Verify(txt2.Text);
+            Verify();
             
         }
 
@@ -44,26 +51,30 @@ namespace number_guessing
         {
             
         }
-        private void Verify(string f)
+        private void Verify()
         {
             
            
-            int num = int.Parse(f);
+            int num = Convert.ToInt32(txt.Text);
 
-            if(n == num)
+            if(num == n)
             {
-                txt.Text = "Felicitari ai ghicit numarul!";
-
-            }
-            if(n>num)
-            {
-                txt.Text = "Mai mare!";
-               
+                MessageBox.Show("Felicitari ai ghicit numarul");
+                generate();
+                txt.Text = "";
 
             }
-            if(n>num)
+            else if(num>n)
             {
-                txt.Text = "Mai mic!";
+
+                MessageBox.Show("Mai mic");
+                txt.Text = "";
+
+            }
+           else if(num<n)
+            {
+                MessageBox.Show("Mai mare");
+                txt.Text = "";
 
             }
            
