@@ -12,14 +12,18 @@ namespace number_guessing
 {
     public partial class Form1 : Form
     {
-        Random number = new Random();
+       
+           Random number = new Random();
+            int n = number.Next(1, 10);
         public Form1()
         {
-
             
+            
+
+
             InitializeComponent();
         }
-        
+       
         private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             
@@ -43,8 +47,9 @@ namespace number_guessing
         private void Verify(string f)
         {
             
-            int n = number.Next(1,10);
+           
             int num = int.Parse(f);
+
             if(n == num)
             {
                 txt.Text = "Felicitari ai ghicit numarul!";
@@ -61,7 +66,9 @@ namespace number_guessing
                 txt.Text = "Mai mic!";
 
             }
+           
 
         }
-    }
+        
+    } 
 }
